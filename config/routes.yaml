@@ -15,3 +15,5 @@ redirecttoroute:
 redirecttolinkedin:
   path: /redirecttolinkedin
   controller: App\Controller\HomeController::redirecToLinkedIn
+
+
