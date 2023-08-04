@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\CustomerRepository;
+use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Entity(repositoryClass: CustomerRepository::class)]
-class Customer
+#[ORM\Entity(repositoryClass: ProductRepository::class)]
+class Product
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -17,10 +17,10 @@ class Customer
     private ?string $nom = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $prenom = null;
+    private ?string $description = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $email = null;
+    #[ORM\Column]
+    private ?int $prix = null;
 
     public function getId(): ?int
     {
@@ -39,28 +39,27 @@ class Customer
         return $this;
     }
 
-    public function getPrenom(): ?string
+    public function getDescription(): ?string
     {
-        return $this->prenom;
+        return $this->description;
     }
 
-    public function setPrenom(string $prenom): static
+    public function setDescription(string $description): static
     {
-        $this->prenom = $prenom;
+        $this->description = $description;
 
         return $this;
     }
 
-    public function getEmail(): ?string
+    public function getPrix(): ?int
     {
-        return $this->email;
+        return $this->prix;
     }
 
-    public function setEmail(string $email): static
+    public function setPrix(int $prix): static
     {
-        $this->email = $email;
+        $this->prix = $prix;
 
         return $this;
     }
-
 }
